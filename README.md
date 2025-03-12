@@ -180,4 +180,4 @@ sns.boxplot(data=cleaned_df)
 
 
 # Result
-          Thus the data cleaning process on the given dataset is executed successfully.
+Thus the data cleaning process on the given dataset is executed successfully.
