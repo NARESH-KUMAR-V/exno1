@@ -75,7 +75,9 @@ df_new
 ```
 ![Screenshot 2025-03-12 211027](https://github.com/user-attachments/assets/fc4297da-3843-431c-b0db-aac6afae1c30)
 
-```df_new.dropna(axis=0)```
+```
+df_new.dropna(axis=0)
+```
 ![Screenshot 2025-03-12 211147](https://github.com/user-attachments/assets/b5c0f382-9e83-4fda-995d-439169d6f452)
 
 
