@@ -32,11 +32,17 @@ df
 df.info()
 ```
 ![image](https://github.com/user-attachments/assets/6342c7a3-96b1-49f9-9dc1-3d642acfa0c7)
-```df.describe()```
+```
+df.describe()
+```
 ![Screenshot 2025-03-12 205741](https://github.com/user-attachments/assets/2e5196ce-2086-43c2-88ea-c850ca86f18f)
-```df.isnull()```
+```
+df.isnull()
+```
 ![Screenshot 2025-03-12 205944](https://github.com/user-attachments/assets/40256420-d6b8-4682-a1b7-a4d853048bd5)
-```df.isnull().sum()```
+```
+df.isnull().sum()
+```
 ![Screenshot 2025-03-12 210142](https://github.com/user-attachments/assets/8d18b6ae-a27e-4860-b9f1-9cc19826da56)
 ```
 df_dropped=df.dropna()
