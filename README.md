@@ -80,6 +80,83 @@ df_new.dropna(axis=0)
 ```
 ![Screenshot 2025-03-12 211147](https://github.com/user-attachments/assets/b5c0f382-9e83-4fda-995d-439169d6f452)
 
+## Outlier Detection and Removal
+```
+import pandas as pd
+import seaborn as sns
+age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
+af=pd.DataFrame(age)
+af
+```
+![Screenshot 2025-03-12 211733](https://github.com/user-attachments/assets/c1ec6ba9-ed36-49cc-b328-6f8e309581af)
+
+```
+sns.boxplot(data=af)
+```
+![Screenshot 2025-03-12 211817](https://github.com/user-attachments/assets/005d6813-9cda-4a92-9e5f-4cd29f721192)
+
+```
+import numpy as np
+Q1=np.percentile(age,25)
+Q2=np.percentile(age,50)
+Q3=np.percentile(age,75)
+```
+```
+ivr=Q3-Q1
+lower_bound=Q1-1.5*IQR
+upper_bound=Q3+1.5*IQR
+outliers=af[(af<lower_bound) | (af>upper_bound) ]
+```
+```
+print("Quantile 1",Q1)
+print("Quantile 2",Q2)
+print("Quantile 3",Q3)
+print("Inter Quartile Range",IQR)
+print("Lower Bound",lower_bound)
+print("Upper Bound",upper_bound)
+print("Outliers",outliers)
+```
+![Screenshot 2025-03-12 212108](https://github.com/user-attachments/assets/96295492-fe39-40a7-9931-56a6c9739c65)
+
+```
+af=af[(af>=lower_bound) & (af<=upper_bound)]
+af.dropna()
+print("After removing outliers")
+af
+```
+![Screenshot 2025-03-12 212250](https://github.com/user-attachments/assets/188b7ac3-7e1b-4a37-8a5e-a5274409dc6b)
+
+```
+sns.boxplot(data=af)
+```
+![image](https://github.com/user-attachments/assets/b9c8bc6d-2102-4ca6-b5d4-53c65738b586)
+```
+from scipy import stats
+af=pd.DataFrame(age)
+sns.boxplot(data=af)
+```
+![Screenshot 2025-03-12 212512](https://github.com/user-attachments/assets/b6ef3fc7-828b-4585-8f51-337eca2fd856)
+
+```
+z=np.abs(stats.zscore(age))
+print("Outlier values:")
+outliers=af[z>1]
+outliers
+```
+![Screenshot 2025-03-12 212628](https://github.com/user-attachments/assets/04f01806-e4ff-494c-ac17-a6ea6db44bd5)
+
+```
+cleaned_af=af[z<1]
+print("After removing outliers")
+cleaned_af
+```
+![Screenshot 2025-03-12 212751](https://github.com/user-attachments/assets/4e0d5c79-07a7-42e3-856b-5ec5cb5a9996)
+
+```
+sns.boxplot(data=cleaned_af)
+```
+![Screenshot 2025-03-12 212832](https://github.com/user-attachments/assets/83820787-0f91-416d-9cdb-843a171ef70f)
+
 
 # Result
           <<include your Result here>>
