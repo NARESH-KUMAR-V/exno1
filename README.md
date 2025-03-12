@@ -145,32 +145,38 @@ sns.boxplot(data=af)
 ```
 ![image](https://github.com/user-attachments/assets/b9c8bc6d-2102-4ca6-b5d4-53c65738b586)
 
+#### USE BOXPLOT FUNCTION HERE TO DETECT OUTLIER
 ```
 from scipy import stats
-af=pd.DataFrame(age)
-sns.boxplot(data=af)
+data=[1,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,66,69,72,75,78,81,84,87,90,93,96,99,158]
+df=pd.DataFrame(data)
+sns.boxplot(data=df)
 ```
-![Screenshot 2025-03-12 212512](https://github.com/user-attachments/assets/b6ef3fc7-828b-4585-8f51-337eca2fd856)
+![image](https://github.com/user-attachments/assets/9d7f81ad-2ad1-41bc-bb47-059683b81f4e)
 
+#### PERFORM Z SCORE METHOD AND DETECT OUTLIER VALUES
 ```
-z=np.abs(stats.zscore(age))
+z=np.abs(stats.zscore(data))
 print("Outlier values:")
-outliers=af[z>1]
+outliers=df[z>3]
 outliers
 ```
-![Screenshot 2025-03-12 212628](https://github.com/user-attachments/assets/04f01806-e4ff-494c-ac17-a6ea6db44bd5)
+![image](https://github.com/user-attachments/assets/a4274bdd-9fe7-4c6b-8f3c-645276230b1d)
 
+#### REMOVE OUTLIERS
 ```
-cleaned_af=af[z<1]
+cleaned_df=df[z<3]
 print("After removing outliers")
-cleaned_af
+cleaned_df
 ```
-![Screenshot 2025-03-12 212751](https://github.com/user-attachments/assets/4e0d5c79-07a7-42e3-856b-5ec5cb5a9996)
+![Screenshot 2025-03-12 220938](https://github.com/user-attachments/assets/51987019-80da-4500-a190-3f29f00edcd5)
 
+#### USE BOXPLOT FUNCTION HERE TO CHECK OUTLIER IS REMOVED
 ```
-sns.boxplot(data=cleaned_af)
+sns.boxplot(data=cleaned_df)
 ```
-![Screenshot 2025-03-12 212832](https://github.com/user-attachments/assets/83820787-0f91-416d-9cdb-843a171ef70f)
+![Screenshot 2025-03-12 221025](https://github.com/user-attachments/assets/dbadfda8-fac1-4505-bfef-a39220b3cbd0)
+
 
 
 # Result
